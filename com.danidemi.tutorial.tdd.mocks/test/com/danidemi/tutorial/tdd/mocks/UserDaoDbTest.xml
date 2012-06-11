@@ -1,0 +1,18 @@
+<!DOCTYPE dataset SYSTEM "dataset.dtd">
+<dataset>
+    <table name="TDD_USER">
+        <column>username</column>
+        <column>password</column>
+        <column>is_locked</column>
+        <row>
+            <value>John</value>
+            <value>Doe</value>
+            <value>false</value>
+        </row>
+        <row>
+            <value>Lucas</value>
+            <value>Manon</value>
+            <value>true</value>
+        </row>
+    </table>  
+</dataset>

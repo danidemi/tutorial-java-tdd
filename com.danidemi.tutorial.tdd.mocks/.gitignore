@@ -1,0 +1,5 @@
+/.settings
+/lib/*.jar
+/.classpath
+/.project
+/.metadata
