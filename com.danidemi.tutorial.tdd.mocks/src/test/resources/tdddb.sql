@@ -1,0 +1,6 @@
+CREATE TABLE TDD_USER(
+	id BIGINT IDENTITY,
+	username VARCHAR(32) UNIQUE,
+	password VARCHAR(32),
+	is_locked BOOLEAN
+);

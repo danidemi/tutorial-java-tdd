@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<table name="TDD_USER">
+		<column>username</column>
+		<column>password</column>
+		<column>is_locked</column>
+		<row>
+			<value>john</value>
+			<value>doe</value>
+			<value>true</value>
+		</row>
+		<row>
+			<value>jean</value>
+			<value>doe</value>
+			<value>false</value>
+		</row>
+	</table>
+</dataset>

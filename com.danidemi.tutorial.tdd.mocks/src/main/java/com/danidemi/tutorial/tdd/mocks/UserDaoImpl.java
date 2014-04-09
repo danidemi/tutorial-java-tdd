@@ -1,15 +1,15 @@
 package com.danidemi.tutorial.tdd.mocks;
 
-import java.beans.Statement;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
-public class UserDaoImpl implements UserDao {
+public class UserDaoImpl extends AbstractDao implements UserDao {
 	
-	@Override
+	public UserDaoImpl(JdbcConf jdbcConf) {
+		super(jdbcConf);
+	}
+
 	public User findUserByUsername(final String username) {
 
 		return new SqlSandwich<User>() {
@@ -28,11 +28,11 @@ public class UserDaoImpl implements UserDao {
 				}
 				return null;
 			}
-		}.execute();
+		}.execute(jdbcConf);
 
 	}
 
-	@Override
+
 	public void saveOrUpdate(final User u) {
 		
 		final UserImpl user = (UserImpl) u;
@@ -61,39 +61,14 @@ public class UserDaoImpl implements UserDao {
 				}
 				return null;
 			}
-		}.execute();
+		}.execute(jdbcConf);
 		
 	}
 
-	@Override
+
 	public User newUser() {
 		UserImpl userImpl = new UserImpl();
 		return userImpl;
 	}
 
-}
-
-abstract class SqlSandwich <T> {
-	
-	public T execute(){
-		Connection connection = null;
-        try {
-        	Class.forName("org.hsqldb.jdbcDriver");
-			connection = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost/tdddb", "sa", "");
-			return withConnection(connection);
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			if(connection!=null){
-				try {
-					connection.close();
-				} catch (SQLException e1) {
-					e1.printStackTrace();
-				}
-			}			
-		}
-		return null;
-	}
-	
-	abstract T withConnection(Connection conn) throws Exception;
 }

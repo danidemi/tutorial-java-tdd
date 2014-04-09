@@ -23,10 +23,10 @@ public class Login {
 
 		User user = userDao.findUserByUsername(username);
 		if(user == null){
-			throw new InvalidCredentialException();
+			throw new InvalidCredentialException("User not specified");
 		}
 		if(!user.passwordMatches(password)){
-			throw new InvalidCredentialException();
+			throw new InvalidCredentialException("Password does not match");
 		}
 		if(user.isLocked()){
 			throw new UserLockedException();
@@ -34,12 +34,12 @@ public class Login {
 		if(! tokenService.check(user.getTokenId(), token) ){
 			user.increaseFailuers();
 			if(user.getFailures()>=3){
-				user.setLocked(true);
+				user.lock();
 				userDao.saveOrUpdate(user);
 				throw new UserLockedException();				
 			}else{
 				userDao.saveOrUpdate(user);
-				throw new InvalidCredentialException();
+				throw new InvalidCredentialException("Token does not match");
 			}
 		}
 		return user;
