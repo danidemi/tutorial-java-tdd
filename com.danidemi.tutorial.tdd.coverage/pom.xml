@@ -4,13 +4,20 @@
                       http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  
+	<!--  
   <groupId>com.danidemi.tutorial</groupId>
-  <artifactId>tdd.coverage</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+	-->  
+  <artifactId>tdd.coverage</artifactId>
   <packaging>jar</packaging>
   
+  <parent>
+  	<groupId>com.danidemi.tutorial</groupId>
+  	<artifactId>tdd-parent</artifactId>
+  	<version>0.0.1-SNAPSHOT</version>
+  </parent>
 
+	<!--  
   <dependencies>
   	<dependency>
   		<groupId>junit</groupId>
@@ -18,4 +25,5 @@
   		<version>4.11</version>
   	</dependency>
   </dependencies>
+	-->
 </project>

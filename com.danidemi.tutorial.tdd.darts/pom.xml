@@ -4,12 +4,18 @@
                       http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  
+<!--  
   <groupId>com.danidemi.tutorial</groupId>
-  <artifactId>tdd.darts</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+-->  
+  <artifactId>tdd.darts</artifactId>
   <packaging>jar</packaging>
   
+  <parent>
+  	<groupId>com.danidemi.tutorial</groupId>
+  	<artifactId>tdd-parent</artifactId>
+  	<version>0.0.1-SNAPSHOT</version>
+  </parent>
 
   <dependencies>
   	<dependency>
