@@ -15,6 +15,7 @@
 		<module>com.danidemi.tutorial.tdd.darts</module>
 		<module>com.danidemi.tutorial.tdd.helloworld</module>
 		<module>com.danidemi.tutorial.tdd.mocks</module>
+		<module>com.danidemi.tutorial.tdd.web</module>
 	</modules>
 
 <properties>
@@ -66,6 +67,20 @@
       <version>${powermock.version}</version>
       <scope>test</scope>
    </dependency>
+<dependency>
+	<groupId>org.springframework</groupId>
+	<artifactId>spring-test</artifactId>
+	<version>4.0.3.RELEASE</version>
+	<scope>test</scope>
+</dependency>
+
+<dependency>
+	<groupId>commons-lang</groupId>
+	<artifactId>commons-lang</artifactId>
+	<version>2.6</version>
+</dependency>
+            
+               
   </dependencies>
 </project>
 

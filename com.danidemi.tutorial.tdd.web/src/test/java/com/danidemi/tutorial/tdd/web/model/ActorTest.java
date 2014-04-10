@@ -17,7 +17,7 @@ import static org.hamcrest.Matchers.*;
 public class ActorTest extends Actor {
 
 	@Test
-	public void shouldComputeDate() {
+	public void shouldComputeProperAge() {
 		
 		// given
 		Actor tested = new Actor();
@@ -32,5 +32,22 @@ public class ActorTest extends Actor {
 		assertThat( years, equalTo(30) );
 		
 	}
+	
+	@Test
+	public void shouldReturnZeroIfCurrentDateIsBeforeBirthDate() {
+		
+		// given
+		Actor tested = new Actor();
+		tested.setFirstName("Paul");
+		tested.setLastName("Oldman");
+		tested.setBirthDate( new DateTime(2010, DateTimeConstants.JANUARY, 1, 0, 0).toDate() );
+		
+		// when
+		int years = tested.getAgeInYears( new DateTime(1995, DateTimeConstants.JANUARY, 12, 0, 0).toDate() );
+		
+		// then
+		assertThat( years, equalTo(0) );
+		
+	}	
 
 }

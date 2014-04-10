@@ -2,10 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>tdd.web</artifactId>
   <packaging>war</packaging>
-<!--  
-  <groupId>com.danidemi.tutorial</groupId>
-  <version>0.0.1-SNAPSHOT</version>
--->  
+
   <parent>
   	<groupId>com.danidemi.tutorial</groupId>
   	<artifactId>tdd-parent</artifactId>
@@ -15,6 +12,16 @@
 
   
   <dependencies>
+
+<!-- servlet-api 3.0.0 supported by Tomcat 7 / Java EE 6 -->
+<dependency>
+	<groupId>javax.servlet</groupId>
+	<artifactId>javax.servlet-api</artifactId>
+	<version>3.0.1</version>
+</dependency>
+            
+            
+            
   
 <dependency>
 	<groupId>joda-time</groupId>

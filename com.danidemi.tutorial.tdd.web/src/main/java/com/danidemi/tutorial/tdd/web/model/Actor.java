@@ -34,8 +34,8 @@ public class Actor {
 		this.birthDate = birthDate;
 	}
 
-	public int getAgeInYears(Date date) {
-		return new Interval(birthDate.getTime(), date.getTime()).toPeriod().getYears();
+	public int getAgeInYears(Date currentDate) {
+		return currentDate.after(birthDate) ? new Interval(birthDate.getTime(), currentDate.getTime()).toPeriod().getYears() : 0;
 	}
 
 }
