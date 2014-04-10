@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
+import org.mockito.InjectMocks;
 
 import com.danidemi.tutorial.tdd.web.model.Actor;
 import com.danidemi.tutorial.tdd.web.model.ActorDao;
@@ -19,6 +21,8 @@ import com.danidemi.tutorial.tdd.web.model.ActorDao;
 public class ActorsServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
+	
+	@Inject
 	private ActorDao actorDao;
 
     public ActorsServlet() {

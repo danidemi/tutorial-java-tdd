@@ -9,6 +9,17 @@ public class Actor {
 	private String firstName;
 	private String lastName;
 	private Date birthDate;
+	
+	public Actor() {
+	
+	}
+	
+	public Actor(String firstName, String lastName, Date birthDate) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.birthDate = birthDate;
+	}
 
 	public String getFirstName() {
 		return firstName;
