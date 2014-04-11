@@ -9,6 +9,7 @@ public class Actor {
 	private String firstName;
 	private String lastName;
 	private Date birthDate;
+	private Long id;
 	
 	public Actor() {
 	
@@ -47,6 +48,14 @@ public class Actor {
 
 	public int getAgeInYears(Date currentDate) {
 		return currentDate.after(birthDate) ? new Interval(birthDate.getTime(), currentDate.getTime()).toPeriod().getYears() : 0;
+	}
+	
+	public Long getId() {
+		return id;
+	}
+	
+	void setId(Long id) {
+		this.id = id;
 	}
 
 }

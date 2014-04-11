@@ -73,7 +73,7 @@ public class ActorsServletFailingTest {
 		// given
 		ActorDao actorDao = mock(ActorDao.class);
 		
-		ActorsServlet tested = new ActorsServlet();
+		NewActorServlet tested = new NewActorServlet();
 		tested.setActorDao( actorDao );
 		
 		MockHttpServletRequest req = new MockHttpServletRequest();

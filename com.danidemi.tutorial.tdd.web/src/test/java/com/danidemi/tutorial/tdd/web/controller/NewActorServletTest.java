@@ -20,7 +20,7 @@ import static org.mockito.Mockito.*;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.*;
 @RunWith(MockitoJUnitRunner.class)
-public class ActorsServletTest {
+public class NewActorServletTest {
 
 	@Mock ActorDao actorDao;
 	@Mock Actor foundActor;
@@ -28,7 +28,7 @@ public class ActorsServletTest {
 	@Test public void shouldNotCreateAnActorCalledTheSameWay() throws IOException {
 		
 		// given
-		ActorsServlet tested = new ActorsServlet();
+		NewActorServlet tested = new NewActorServlet();
 		tested.setActorDao(actorDao);
 		when(actorDao.findBy( any(String.class), any(String.class) )).thenReturn( foundActor );
 		

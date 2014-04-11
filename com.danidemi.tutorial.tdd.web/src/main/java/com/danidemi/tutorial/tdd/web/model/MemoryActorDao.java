@@ -4,21 +4,21 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.inject.Singleton;
-
-@Singleton
 public class MemoryActorDao implements ActorDao {
+	
+	private static long lastId = 0;
 	
 	private List<Actor> actors;
 	
 	public MemoryActorDao() {
 		actors = new ArrayList<Actor>();
-		actors.add( new Actor("aaa1", "aaa2", new Date()) );
-		actors.add( new Actor("bbb1", "bbb2", new Date()) );
-		actors.add( new Actor("ccc1", "ccc2", new Date()) );
+		save( new Actor("aaa1", "aaa2", new Date()) );
+		save( new Actor("bbb1", "bbb2", new Date()) );
+		save( new Actor("ccc1", "ccc2", new Date()) );
 	}
 
 	public void save(Actor actor) {
+		actor.setId(++lastId);
 		actors.add(actor);
 	}
 
@@ -29,6 +29,24 @@ public class MemoryActorDao implements ActorDao {
 			}
 		}
 		return null;
+	}
+	
+	@Override
+	public Actor findById(Long id) {
+		for (Actor actor : actors) {
+			if(actor.getId() == id){
+				return actor;
+			}
+		}
+		return null;
+	}	
+	
+	@Override
+	public void deleteById(long actorId){
+		Actor findById = findById(actorId);
+		if(findById!=null){
+			actors.remove(findById);
+		}
 	}
 
 	public List<Actor> findAll() {

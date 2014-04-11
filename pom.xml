@@ -15,6 +15,7 @@
 		<module>com.danidemi.tutorial.tdd.helloworld</module>
 		<module>com.danidemi.tutorial.tdd.mocks</module>
 		<module>com.danidemi.tutorial.tdd.web</module>
+		<module>com.danidemi.tutorial.tdd.selenium.webdriver</module>
 	</modules>
 
 	<properties>
@@ -45,7 +46,12 @@
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
 			<version>2.4</version>
-		</dependency>		
+		</dependency>
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>2.3</version>
+		</dependency>
 		<!--
 		============================================================
 		Utils

@@ -10,4 +10,8 @@ public interface ActorDao {
 
 	List<Actor> findAll();
 
+	void deleteById(long actorId);
+
+	Actor findById(Long id);
+
 }
