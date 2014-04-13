@@ -42,10 +42,13 @@ public class MemoryActorDao implements ActorDao {
 	}	
 	
 	@Override
-	public void deleteById(long actorId){
+	public Actor deleteById(long actorId){
 		Actor findById = findById(actorId);
 		if(findById!=null){
 			actors.remove(findById);
+			return findById;
+		}else{
+			return null;
 		}
 	}
 

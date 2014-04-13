@@ -18,6 +18,8 @@ import com.danidemi.tutorial.tdd.web.init.Initializer;
 import com.danidemi.tutorial.tdd.web.init.InitializerListener;
 import com.danidemi.tutorial.tdd.web.model.Actor;
 import com.danidemi.tutorial.tdd.web.model.ActorDao;
+import com.danidemi.tutorial.tdd.web.view.FlashMessage;
+import com.danidemi.tutorial.tdd.web.view.FlashMessage.Priority;
 
 @WebServlet(urlPatterns="/new")
 public class NewActorServlet extends HttpServlet {
@@ -63,12 +65,11 @@ public class NewActorServlet extends HttpServlet {
 		}
 		actorDao.save(actor);
 		
-		List<Actor> findAll = actorDao.findAll();
-		
-		RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/actors.jsp");
-		request.setAttribute("actors", findAll);
-		requestDispatcher.forward(request, response);		
+		response.sendRedirect( response.encodeRedirectURL(FlashMessageFilter.appendFlash(getServletContext().getContextPath(), FlashMessage.Priority.INFO, "Actor '" + firstName + " " + lastName + "' added")) );
+				
 	}
+
+
 
 	public void setActorDao(ActorDao mock) {
 		this.actorDao = mock;

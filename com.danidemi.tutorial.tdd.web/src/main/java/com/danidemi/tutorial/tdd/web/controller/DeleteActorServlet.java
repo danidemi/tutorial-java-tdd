@@ -18,6 +18,7 @@ import com.danidemi.tutorial.tdd.web.init.Initializer;
 import com.danidemi.tutorial.tdd.web.init.InitializerListener;
 import com.danidemi.tutorial.tdd.web.model.Actor;
 import com.danidemi.tutorial.tdd.web.model.ActorDao;
+import com.danidemi.tutorial.tdd.web.view.FlashMessage;
 
 @WebServlet(urlPatterns="/delete")
 public class DeleteActorServlet extends HttpServlet {
@@ -38,13 +39,11 @@ public class DeleteActorServlet extends HttpServlet {
 		
 		Long id = Long.parseLong( request.getParameter("id") );
 						
-		actorDao.deleteById(id);
+		Actor deleted = actorDao.deleteById(id);
 		
-		List<Actor> findAll = actorDao.findAll();
 		
-		RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/actors.jsp");
-		request.setAttribute("actors", findAll);
-		requestDispatcher.forward(request, response);		
+		response.sendRedirect( response.encodeRedirectURL(FlashMessageFilter.appendFlash(getServletContext().getContextPath(), FlashMessage.Priority.INFO, "Actor '" + deleted.getFirstName() + " " + deleted.getLastName() + "' removed")) );		
+		
 	}
 
 	public void setActorDao(ActorDao mock) {
