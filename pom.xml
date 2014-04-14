@@ -16,6 +16,8 @@
 		<module>com.danidemi.tutorial.tdd.mocks</module>
 		<module>com.danidemi.tutorial.tdd.web</module>
 		<module>com.danidemi.tutorial.tdd.selenium.webdriver</module>
+		<module>?</module>
+		<module>com.danidemi.tutorial.tdd.httpunit</module>
 	</modules>
 
 	<properties>

@@ -8,8 +8,9 @@
 <body>
 <table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
 <tr><td><b>Test Suite</b></td></tr>
-<tr><td><a href="selenium">AddNewActor</a></td></tr>
-<tr><td><a href="selenium">DeleteActor</a></td></tr>
+<tr><td><a href="ClickAround">ClickAround</a></td></tr>
+<tr><td><a href="AddNewActor">AddNewActor</a></td></tr>
+<tr><td><a href="DontAddActorWithSameName">DontAddActorWithSameName</a></td></tr>
 </tbody></table>
 </body>
 </html>

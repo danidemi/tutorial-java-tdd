@@ -53,19 +53,27 @@ public class NewActorServlet extends HttpServlet {
 		}				
 		
 		Actor existingActor = actorDao.findBy(firstName, lastName);
-		if(existingActor!=null) throw new ServletException("Actor is already present.");
 		
-		Actor actor = new Actor();
-		actor.setFirstName(firstName);
-		actor.setLastName(lastName);
-		try {
-			actor.setBirthDate(new SimpleDateFormat("yyyy-MM-dd").parse(birthDate));
-		} catch (ParseException e) {
-			throw new ServletException(e);
+		if(existingActor!=null) {
+			
+			response.sendRedirect( response.encodeRedirectURL(FlashMessageFilter.appendFlash(getServletContext().getContextPath(), FlashMessage.Priority.ERROR, "Actor '" + firstName + " " + lastName + "' already exists.")) );
+			
+		}else{
+			
+			Actor actor = new Actor();
+			actor.setFirstName(firstName);
+			actor.setLastName(lastName);
+			try {
+				actor.setBirthDate(new SimpleDateFormat("yyyy-MM-dd").parse(birthDate));
+			} catch (ParseException e) {
+				throw new ServletException(e);
+			}
+			actorDao.save(actor);
+			
+			response.sendRedirect( response.encodeRedirectURL(FlashMessageFilter.appendFlash(getServletContext().getContextPath(), FlashMessage.Priority.INFO, "Actor '" + firstName + " " + lastName + "' added")) );
+			
 		}
-		actorDao.save(actor);
 		
-		response.sendRedirect( response.encodeRedirectURL(FlashMessageFilter.appendFlash(getServletContext().getContextPath(), FlashMessage.Priority.INFO, "Actor '" + firstName + " " + lastName + "' added")) );
 				
 	}
 
