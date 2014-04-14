@@ -10,14 +10,14 @@
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>com.danidemi.tutorial.tdd.coverage</module>
-		<module>com.danidemi.tutorial.tdd.darts</module>
-		<module>com.danidemi.tutorial.tdd.helloworld</module>
-		<module>com.danidemi.tutorial.tdd.mocks</module>
-		<module>com.danidemi.tutorial.tdd.web</module>
-		<module>com.danidemi.tutorial.tdd.selenium.webdriver</module>
-		<module>?</module>
-		<module>com.danidemi.tutorial.tdd.httpunit</module>
+		<module>tdd-coverage</module>
+		<module>tdd-darts</module>
+		<module>tdd-helloworld</module>
+		<module>tdd-mocks</module>
+		<module>tdd-web-app</module>
+		<module>tdd-web-selenium-webdriver</module>
+		<module>tdd-web-selenium-ide</module>
+		<module>tdd-web-htmlunit</module>
 	</modules>
 
 	<properties>
