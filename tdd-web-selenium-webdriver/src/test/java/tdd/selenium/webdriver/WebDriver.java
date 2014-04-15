@@ -1,15 +1,22 @@
 package tdd.selenium.webdriver;
 
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
+
 import org.junit.*;
+
 import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.Matchers.*;
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
 public class WebDriver {
+	
   private FirefoxDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -18,27 +25,118 @@ public class WebDriver {
   @Before
   public void setUp() throws Exception {
     driver = new FirefoxDriver();
-    baseUrl = "http://localhost:8080/tdd.web/";
-    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    baseUrl = "http://127.0.1.1:8080/tdd-web-app/";
+    driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
+  }
+  
+  @Test
+  public void shouldNotAddSameActorTwice() {
+	  
+		String firstName = "Carl" + new Date().getTime();
+		String lastName = "Reed" + new Date().getTime();
+		String birthDate = "1910-10-10";
+		
+	    driver.get(baseUrl);
+	    
+	    int rowsBefore = driver.findElementsByTagName("tr").size();
+	    
+	    WebElement firstNameField = driver.findElement(By.id("firstName"));
+	    WebElement lastNameField = driver.findElement(By.id("lastName"));
+	    WebElement birthDateField = driver.findElement(By.id("birthDate"));
+	    WebElement submitButton = driver.findElement(By.cssSelector("#form > form > input[type=\"submit\"]"));
+	    
+	    
+	    // compiles first name
+		firstNameField.clear();
+		firstNameField.sendKeys(firstName);
+	    
+	    // compiles last name
+		lastNameField.clear();
+		lastNameField.sendKeys(lastName);
+	    
+	    // compiles birth date
+		birthDateField.clear();
+		birthDateField.sendKeys(birthDate);
+	    
+	    // clicks submit
+		submitButton.click();
+		
+		
+		// element should be reloaded after click(), see click() javadoc.
+	    firstNameField = driver.findElement(By.id("firstName"));
+	    lastNameField = driver.findElement(By.id("lastName"));
+	    birthDateField = driver.findElement(By.id("birthDate"));
+	    submitButton = driver.findElement(By.cssSelector("#form > form > input[type=\"submit\"]"));
+		
+		
+	    // compiles first name
+		firstNameField.clear();
+		firstNameField.sendKeys(firstName);
+	    
+	    // compiles last name
+		lastNameField.clear();
+		lastNameField.sendKeys(lastName);
+	    
+	    // compiles birth date
+		birthDateField.clear();
+		birthDateField.sendKeys(birthDate);
+		
+	    // clicks submit
+		submitButton.click();		
+	    
+	    // gets the pop up
+	    String infoText = driver.findElementByClassName("flash-error").getText();
+	    
+	    int rowsAfter = driver.findElementsByTagName("tr").size();
+	    
+	    // check the name is reported in the message
+	    assertThat(infoText, stringContainsInOrder(Arrays.asList(new String[]{ firstName, lastName })));
+	    assertThat(rowsAfter - rowsBefore, equalTo(1));
+
+	  
   }
 
   @Test
-  public void testWebDriver() throws Exception {
+  public void shouldAddNewActor() throws Exception {
+	  	  
+	String firstName = "Carl" + new Date().getTime();
+	String lastName = "Reed" + new Date().getTime();
+	String birthDate = "1910-10-10";
+
     driver.get(baseUrl);
-    driver.findElement(By.id("firstName")).clear();
-    driver.findElement(By.id("firstName")).sendKeys("Carl");
-    driver.findElement(By.id("lastName")).clear();
-    driver.findElement(By.id("lastName")).sendKeys("Reed");
-    driver.findElement(By.id("birthDate")).clear();
-    driver.findElement(By.id("birthDate")).sendKeys("1910-10-10");
-    driver.findElement(By.cssSelector("#form > form > input[type=\"submit\"]")).click();
-    driver.findElement(By.id("firstName")).clear();
-    driver.findElement(By.id("firstName")).sendKeys("Carl");
-    driver.findElement(By.id("lastName")).clear();
-    driver.findElement(By.id("lastName")).sendKeys("Reed");
-    driver.findElement(By.id("birthDate")).clear();
-    driver.findElement(By.id("birthDate")).sendKeys("1910-11-24");
-    driver.findElement(By.cssSelector("#form > form > input[type=\"submit\"]")).click();
+    
+    int rowsBefore = driver.findElementsByTagName("tr").size();
+    
+    WebElement firstNameField = driver.findElement(By.id("firstName"));
+    WebElement lastNameField = driver.findElement(By.id("lastName"));
+    WebElement birthDateField = driver.findElement(By.id("birthDate"));
+    WebElement submitButton = driver.findElement(By.cssSelector("#form > form > input[type=\"submit\"]"));
+    
+    
+    // compiles first name
+	firstNameField.clear();
+	firstNameField.sendKeys(firstName);
+    
+    // compiles last name
+	lastNameField.clear();
+	lastNameField.sendKeys(lastName);
+    
+    // compiles birth date
+	birthDateField.clear();
+	birthDateField.sendKeys(birthDate);
+    
+    // clicks submit
+	submitButton.click();
+    
+    // gets the pop up
+    String infoText = driver.findElementByClassName("flash-info").getText();
+    
+    int rowsAfter = driver.findElementsByTagName("tr").size();
+    
+    // check the name is reported in the message
+    assertThat(infoText, stringContainsInOrder(Arrays.asList(new String[]{ firstName, lastName })));
+    assertThat(rowsAfter - rowsBefore, equalTo(1));
+    
   }
 
   @After

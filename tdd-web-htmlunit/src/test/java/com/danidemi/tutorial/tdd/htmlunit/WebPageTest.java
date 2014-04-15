@@ -5,6 +5,7 @@ import java.net.MalformedURLException;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
@@ -27,6 +28,7 @@ public class WebPageTest {
 		webClient.closeAllWindows();		
 	}
 	
+	@Ignore
 	@Test
 	public void test() throws FailingHttpStatusCodeException, MalformedURLException, IOException {
 		final HtmlPage page = webClient.getPage("http://localhost:8080");
