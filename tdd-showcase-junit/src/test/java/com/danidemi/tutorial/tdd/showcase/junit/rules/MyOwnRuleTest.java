@@ -20,9 +20,7 @@ public class MyOwnRuleTest {
 		@Override
 		protected void skipped(AssumptionViolatedException e,
 				Description description) {
-			
-			System.out.println("----");
-		
+					
 			countTests++;
 			
 			if(countTests > maxSkips){
