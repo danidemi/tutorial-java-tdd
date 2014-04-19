@@ -18,6 +18,7 @@
 		<module>tdd-web-selenium-webdriver</module>
 		<module>tdd-web-selenium-ide</module>
 		<module>tdd-web-htmlunit</module>
+		<module>tdd-showcase-junit</module>
 	</modules>
 
 	<properties>
