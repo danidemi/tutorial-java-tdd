@@ -19,6 +19,7 @@
 		<module>tdd-web-selenium-ide</module>
 		<module>tdd-web-htmlunit</module>
 		<module>tdd-showcase-junit</module>
+		<module>tdd-showcase-hamcrest</module>
 	</modules>
 
 	<properties>
