@@ -5,13 +5,14 @@
     <artifactId>tdd-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>tdd-showcase-hamcrest</artifactId>
+  <artifactId>tdd-showcase-powermock</artifactId>
   
-  <dependencies>
+    <dependencies>
   	<dependency>
     <groupId>com.danidemi.tutorial</groupId>
     <artifactId>tdd-showcase-main</artifactId>
     <version>${project.version}</version>
   	</dependency>
   </dependencies>
+  
 </project>

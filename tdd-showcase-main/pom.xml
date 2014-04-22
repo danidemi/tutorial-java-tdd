@@ -5,13 +5,6 @@
     <artifactId>tdd-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>tdd-showcase-hamcrest</artifactId>
-  
-  <dependencies>
-  	<dependency>
-    <groupId>com.danidemi.tutorial</groupId>
-    <artifactId>tdd-showcase-main</artifactId>
-    <version>${project.version}</version>
-  	</dependency>
-  </dependencies>
+  <artifactId>tdd-showcase-main</artifactId>
+    
 </project>

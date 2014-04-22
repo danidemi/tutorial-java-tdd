@@ -21,6 +21,8 @@
 		<module>tdd-showcase-junit</module>
 		<module>tdd-showcase-hamcrest</module>
 		<module>tdd-showcase-mockito</module>
+		<module>tdd-showcase-main</module>
+		<module>tdd-showcase-powermock</module>
 	</modules>
 
 	<properties>
