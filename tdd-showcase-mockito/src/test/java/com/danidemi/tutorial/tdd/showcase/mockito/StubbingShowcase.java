@@ -9,6 +9,7 @@ import static org.mockito.Mockito.when;
 
 import java.text.SimpleDateFormat;
 import java.util.Comparator;
+import java.util.Map;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -16,12 +17,12 @@ import org.junit.rules.ExpectedException;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 
-public class MockitoShowcase {
+public class StubbingShowcase {
 	
 	public @Rule ExpectedException asError = ExpectedException.none();
 
 	@Test
-	public void mockAnIntercase() {
+	public void stubAnInterface() {
 
 		Comparator<String> comparator = mock(Comparator.class);
 		
@@ -32,7 +33,7 @@ public class MockitoShowcase {
 	}
 	
 	@Test
-	public void mockAnInterfaceAndDefineMethods() {
+	public void stubANotVoidMethod() {
 
 		Comparator<String> comparator = mock(Comparator.class);
 		
@@ -47,7 +48,7 @@ public class MockitoShowcase {
 	}	
 	
 	@Test
-	public void mockThrowsAnException() {
+	public void stubThrowingAnException() {
 		
 		asError.expect(IllegalArgumentException.class);
 		
@@ -59,7 +60,7 @@ public class MockitoShowcase {
 	}
 	
 	@Test
-	public void mockAComplexMethod() {
+	public void stubbingProvidingAComplexBehaviour() {
 		
 		Comparator<String> comparator = mock(Comparator.class);
 		when(comparator.compare(any(String.class), any(String.class))).then(new Answer<Integer>() {
@@ -76,7 +77,7 @@ public class MockitoShowcase {
 	}
 	
 	@Test
-	public void mockMethod() {
+	public void stubVoidMethod() {
 		
 		SimpleDateFormat mock = mock( SimpleDateFormat.class );
 		
@@ -89,18 +90,5 @@ public class MockitoShowcase {
 		mock.setLenient(false);
 		
 	}
-	
-	/*
-	@Test
-	public void spyClass() {
 		
-		StringTokenizer st = mock( StringTokenizer.class );
-		
-		int countTokens = st.countTokens();
-		
-		assertThat( countTokens, equalTo(3) );
-		
-	}
-	*/
-
 }
