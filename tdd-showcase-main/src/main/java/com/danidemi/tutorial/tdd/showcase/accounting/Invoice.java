@@ -1,4 +1,4 @@
-package com.danidemi.tutorial.tdd.showcase.hamcrest;
+package com.danidemi.tutorial.tdd.showcase.accounting;
 
 public class Invoice {
 	
@@ -28,6 +28,15 @@ public class Invoice {
 	@Override
 	public String toString() {
 		return "Invoice #" + number;
+	}
+
+	public void k() {
+		this.z("ole");
+		
+	}
+
+	private void z(String string) {
+		
 	}
 	
 }

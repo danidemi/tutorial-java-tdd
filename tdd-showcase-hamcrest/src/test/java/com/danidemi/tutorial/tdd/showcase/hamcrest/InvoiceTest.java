@@ -4,6 +4,9 @@ import static org.junit.Assert.assertThat;
 import static org.hamcrest.Matchers.*;
 
 import org.junit.Test;
+
+import com.danidemi.tutorial.tdd.showcase.accounting.Invoice;
+
 import static com.danidemi.tutorial.tdd.showcase.hamcrest.InvoiceMatchers.*;
 
 

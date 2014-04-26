@@ -1,4 +1,4 @@
-package com.danidemi.tutorial.tdd.showcase.hamcrest;
+package com.danidemi.tutorial.tdd.showcase.accounting;
 
 public interface InvoiceStatus {
 

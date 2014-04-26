@@ -3,6 +3,8 @@ package com.danidemi.tutorial.tdd.showcase.hamcrest;
 import org.hamcrest.Description;
 import org.hamcrest.TypeSafeMatcher;
 
+import com.danidemi.tutorial.tdd.showcase.accounting.Invoice;
+
 class InvoiceIsPayed extends TypeSafeMatcher<Invoice> {
 
 	@Override
