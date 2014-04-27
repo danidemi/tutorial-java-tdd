@@ -1,41 +1,40 @@
 package com.danidemi.tutorial.tdd.showcase.powermock;
 
-import static org.junit.Assert.*;
+import static org.hamcrest.Matchers.equalTo;
+import static org.junit.Assert.assertThat;
+import static org.powermock.api.mockito.PowerMockito.mock;
+import static org.powermock.api.mockito.PowerMockito.when;
+import static org.powermock.api.mockito.PowerMockito.whenNew;
 
 import java.util.Date;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
-
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.isNull;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.nullValue;
-import static org.powermock.api.mockito.PowerMockito.*;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest(Date.class)
 public class Constructors {
-	
+		
 	@Test
 	public void mockConstructor() throws Exception {
 		
-		// given
-		Date mockDate = PowerMockito.mock(Date.class);
-		PowerMockito.whenNew(Date.class).withNoArguments().thenReturn( mockDate );
+		// Mock a constructor to make it return what you want.
+		// Extremely useful with code using Date.
 		
-		when(mockDate.getTime()).thenReturn(0L);
-
+		// given
+		// ...a date "0"
+		Date myDate = new Date(0);
+		// ...when code instantiate a new Date, return the date "0"
+		whenNew(Date.class).withNoArguments().thenReturn( myDate );
+		
 		// when
 		long tested = new Date().getTime();
 		
 		// then
 		assertThat( tested, equalTo(0L) );
 		
-	}
+	}	
 	
 }

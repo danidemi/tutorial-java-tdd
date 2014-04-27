@@ -35,6 +35,7 @@
 		<dependency.hamcrest.version>1.3</dependency.hamcrest.version>
 		<dependency.spring.version>4.0.3.RELEASE</dependency.spring.version>
 		<dependency.commons-lang.version>2.6</dependency.commons-lang.version>
+    	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<dependencies>

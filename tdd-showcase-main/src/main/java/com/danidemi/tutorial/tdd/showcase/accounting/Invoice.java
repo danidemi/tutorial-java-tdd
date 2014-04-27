@@ -30,13 +30,17 @@ public class Invoice {
 		return "Invoice #" + number;
 	}
 
-	public void k() {
-		this.z("ole");
-		
+	public int k(String param) {
+		this.noArgPrivate();
+		return this.oneArgPrivate(param);
 	}
 
-	private void z(String string) {
-		
+	private int oneArgPrivate(String string) {
+		return 0;
 	}
+	
+	private void noArgPrivate() {
+		
+	}	
 	
 }

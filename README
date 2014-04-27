@@ -1,0 +1,27 @@
+This is a series of examples that helps in understanding how to practice TDD in Java.
+
+*	tdd-helloworld: First steps.
+
+*	tdd-darts: A first example about developing a library without dependencies using Unit Tests.
+
+*	tdd-coverage: Shows how 100% coverage does not mean software is correct.
+
+*	tdd-mocks: An example about using mocks with the usual DAO pattern and DbUnit.
+
+*	tdd-showcace-main: some domain classes shared among different examples.
+
+*	tdd-showcase-hamcrest: Things you can do with Hamcrest matchers in JUnit.
+
+*	tdd-showcase-junit: Things you can do with JUnit.
+
+*	tdd-showcase-mockito: Things you can do with Mockito.
+
+*	tdd-showcase-powermock: Things you can do with PowerMock and Mockito.
+
+*	tdd-web-app: sample web app.
+
+*	tdd-web-htmlunit: example of automatic testing with HtmlUnit.
+
+*	tdd-web-selenium-ide: example of automatic testing with SeleniumIde.
+
+*	tdd-web-selenium-webdriver: example of automatic testing with WebDriver.

@@ -1,5 +1,7 @@
 package com.danidemi.tutorial.tdd.darts;
 
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
@@ -18,43 +20,43 @@ public class DartsTest {
 	}
 	
 	@Test public void aGameShouldStartAt301(){
-		assertEquals(301, d.score());
-		assertFalse(d.isFinished());
+		assertThat(d.score(), equalTo(301) );
+		assertThat(d.isFinished(), is(false));
 	}
 
 	@Test public void shouldCorrectlyScoreANormalThrow(){
 		d.dart(20);
-		assertEquals(281, d.score());
+		assertThat(d.score(), is(281));
 	}
 
 	@Test public void shouldCountADoubleThrow(){
 		d.dart(20, Multiplier.DOUBLE);
-		assertEquals(301 - 20*2, d.score());
+		assertThat(d.score(), is(301 - 20*2));
 	}
 
 	@Test public void shouldCountATripleThrow(){
 		d.dart(20, Multiplier.TRIPLE);
-		assertEquals(301 - 20*3, d.score());
+		assertThat(d.score(), is(301 - 20*3));
 	}
 
 	@Test public void shouldCountTheTurnInitially(){
-		assertEquals(1, d.getTurn());
-		assertEquals(3, d.dartsLeft());
+		assertThat(d.getTurn(), is(1));
+		assertThat(d.dartsLeft(), is(3));
 	}
 
 	@Test public void shouldCountTheTurn(){
 	
 		d.dart(1);		
-		assertEquals(1, d.getTurn());
-		assertEquals(2, d.dartsLeft());
+		assertThat(d.getTurn(), is(1));
+		assertThat(d.dartsLeft(), is(2));
 		
 		d.dart(1);		
-		assertEquals(1, d.getTurn());
-		assertEquals(1, d.dartsLeft());
+		assertThat(d.getTurn(), is(1));
+		assertThat(d.dartsLeft(), is(1));
 		
 		d.dart(1);		
-		assertEquals(2, d.getTurn());
-		assertEquals(3, d.dartsLeft());		
+		assertThat(d.getTurn(), is(2));
+		assertThat(d.dartsLeft(), is(3));		
 	}
 
 	@Test public void shouldGoBustReaching1(){
