@@ -24,6 +24,7 @@
 		<module>tdd-showcase-main</module>
 		<module>tdd-showcase-powermock</module>
 		<module>tdd-j2e-open-ejb</module>
+		<module>tdd-j2e-arquillan</module>
 	</modules>
 
 	<properties>
