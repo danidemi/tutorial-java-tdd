@@ -14,7 +14,6 @@ import org.dbunit.database.IDatabaseConnection;
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.xml.XmlDataSet;
 import org.dbunit.operation.DatabaseOperation;
-import org.hsqldb.lib.InOutUtil;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -37,7 +36,7 @@ public class UserDaoDbTest {
 
 		final IDatabaseConnection conn = new DatabaseConnection(connection);
 
-		String resourcePath = UserDaoDbTest.class.getSimpleName() + ".xml";
+		String resourcePath = "/" + UserDaoDbTest.class.getSimpleName() + ".xml";
 		InputStream resourceAsStream = UserDaoDbTest.class
 				.getResourceAsStream(resourcePath);
 		if (resourceAsStream == null) {
