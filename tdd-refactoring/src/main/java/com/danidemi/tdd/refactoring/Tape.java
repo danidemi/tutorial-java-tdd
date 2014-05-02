@@ -3,15 +3,18 @@ package com.danidemi.tdd.refactoring;
   * The tape class represents a physical tape.
   */
 public class Tape extends DomainObject {
-	public Movie movie() {
-		return _movie;
-	}
-
+	
+	private String serialNumber;
+	private Movie movie;
+	
 	public Tape(String serialNumber, Movie movie) {
-		_serialNumber = serialNumber;
-		_movie = movie;
+		this.serialNumber = serialNumber;
+		this.movie = movie;
+	}
+	
+	public Movie movie() {
+		return movie;
 	}
 
-	private String _serialNumber;
-	private Movie _movie;
+
 }

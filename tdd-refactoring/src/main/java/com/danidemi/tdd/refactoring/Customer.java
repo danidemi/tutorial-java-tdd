@@ -1,24 +1,27 @@
 package com.danidemi.tdd.refactoring;
 
+import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Vector;
 
 class Customer extends DomainObject {
 	
-	private Vector _rentals = new Vector();	
+	private List<Rental> rentals = new ArrayList<>();	
 	
 	public Customer(String name) {
-		_name = name;
+		super(name);
 	}
 
 	public String statement() {
 		double totalAmount = 0;
 		int frequentRenterPoints = 0;
-		Enumeration rentals = _rentals.elements();
+		Iterator<Rental> rentalsIt = rentals.iterator();
 		String result = "Rental Record for " + name() + "\n";
-		while (rentals.hasMoreElements()) {
+		while (rentalsIt.hasNext()) {
 			double thisAmount = 0;
-			Rental each = (Rental) rentals.nextElement();
+			Rental each = rentalsIt.next();
 
 			// determine amounts for each line
 			switch (each.tape().movie().priceCode()) {
@@ -60,7 +63,10 @@ class Customer extends DomainObject {
 	}
 
 	public void addRental(Rental arg) {
-		_rentals.addElement(arg);
+		if(arg.tape().movie().priceCode() < 0 || arg.tape().movie().priceCode() > 3){
+			throw new IllegalArgumentException("Wrong movie price code");
+		}
+		rentals.add(arg);
 	}
 
 	public static Customer get(String name) {

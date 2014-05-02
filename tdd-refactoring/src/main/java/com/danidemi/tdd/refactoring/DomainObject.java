@@ -5,20 +5,20 @@ package com.danidemi.tdd.refactoring;
  */
 public class DomainObject {
 	
-	protected String _name = "no name";	
+	protected String name = "no name";	
 
 	public DomainObject (String name)	{
-		_name = name;
+		this.name = name;
 	};
 
 	public DomainObject ()	{};
 
 	public String name ()	{
-		return _name;
+		return name;
 	};
 
 	public String toString() {
-		return _name;
+		return name;
 	};
 
 }
