@@ -1,12 +1,13 @@
-package com.danidemi.tdd.refactoring;
+package com.danidemi.tdd.refactoringdone;
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.RETURNS_DEEP_STUBS;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
-
-
 
 public class CustomerTest {
 	
@@ -16,7 +17,7 @@ public class CustomerTest {
 	public void testRegularFor3Days() {
 		
 		// given
-		Rental rental = mockARental(Movie.REGULAR, "The Empire Strikes Back", 3);
+		Rental rental = mockARegularRental("The Empire Strikes Back", 3);
 		
 		// when
 		Customer customer = new Customer("John");
@@ -32,7 +33,7 @@ public class CustomerTest {
 	public void testRegularFor2Days() {
 		
 		// given
-		Rental rental = mockARental(Movie.REGULAR, "The Empire Strikes Back", 2);
+		Rental rental = mockARegularRental("The Empire Strikes Back", 2);
 		
 		// when
 		Customer customer = new Customer("John");
@@ -48,7 +49,7 @@ public class CustomerTest {
 	public void testRegularFor1Days() {
 		
 		// given
-		Rental rental = mockARental(Movie.REGULAR, "The Empire Strikes Back", 1);
+		Rental rental = mockARegularRental("The Empire Strikes Back", 1);
 		
 		// when
 		Customer customer = new Customer("John");
@@ -64,7 +65,7 @@ public class CustomerTest {
 	public void testLongNewRelease() {
 		
 		// given
-		Rental rental = mockARental(Movie.NEW_RELEASE, "The Empire Strikes Back", 2);
+		Rental rental = mockANewReleaseRental("The Empire Strikes Back", 2);
 		
 		// when
 		Customer customer = new Customer("Mark");
@@ -80,7 +81,7 @@ public class CustomerTest {
 	public void testShortNewRelease() {
 		
 		// given
-		Rental rental = mockARental(Movie.NEW_RELEASE, "The Empire Strikes Back", 1);
+		Rental rental = mockANewReleaseRental("The Empire Strikes Back", 1);
 		
 		// when
 		Customer customer = new Customer("Mark");
@@ -96,7 +97,7 @@ public class CustomerTest {
 	public void testShortChildren() {
 		
 		// given
-		Rental rental = mockARental(Movie.CHILDRENS, "Whitesnow", 2);
+		Rental rental = mockAChildrenRental("Whitesnow", 2);
 		
 		// when
 		Customer customer = new Customer("Mark");
@@ -112,7 +113,7 @@ public class CustomerTest {
 	public void testLongChildren() {
 		
 		// given
-		Rental rental = mockARental(Movie.CHILDRENS, "Madagascar", 4);
+		Rental rental = mockAChildrenRental( "Madagascar", 4);
 		
 		// when
 		Customer customer = new Customer("Mark");
@@ -128,7 +129,7 @@ public class CustomerTest {
 	public void shouldNotAcceptIllegalCategory() {
 		
 		// given
-		Rental rental = mockARental(Integer.MAX_VALUE, "Madagascar", 4);
+		Rental rental = mockAChildrenRental( "Madagascar", 4);
 		Customer customer = new Customer("Mark");
 		
 		// when
@@ -137,14 +138,25 @@ public class CustomerTest {
 				
 	}
 	
-	private Rental mockARental(int priceCode, String title, int daysRented) {
-		
-		Movie movie = new Movie(title, priceCode);
+
+	private Rental mockARegularRental(String title, int daysRented) {
+		return mockARental(daysRented, Movie.newRegularMovie(title));
+	}
+	
+	private Rental mockAChildrenRental(String title, int daysRented) {
+		return mockARental(daysRented, Movie.newChildrenMovie(title));
+	}
+	
+	private Rental mockANewReleaseRental(String title, int daysRented) {
+		return mockARental(daysRented, Movie.newJustReleasedMovie(title));
+	}	
+	
+	
+	private Rental mockARental(int daysRented, Movie movie) {
 		Tape tape = new Tape("00000", movie);
 		Rental rental = new Rental(tape, daysRented);
 		
 		return rental;
-
 	}	
 	
 }
