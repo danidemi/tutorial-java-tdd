@@ -10,64 +10,81 @@ package com.danidemi.tdd.refactoringdone;
  */
 public class Movie extends DomainObject {
 	
-	public static final int CHILDRENS = 2;
-	public static final int REGULAR = 0;
-	public static final int NEW_RELEASE = 1;
+	private static final int CHILDRENS = 2;
+	private static final int REGULAR = 0;
+	private static final int NEW_RELEASE = 1;
+	
+	private MovieStatus status;
+	
 
-	private int priceCode;
-
-	private Movie(String name, int priceCode) {
+	private Movie(String name, MovieStatus initialStatus) {
 		super(name);
-		this.priceCode = priceCode;
+		this.status = initialStatus;
 	}
 	
 	public static Movie newChildrenMovie(String name) {
-		return new Movie(name, CHILDRENS);
+		return new Movie(name, new ChildrenStatus());
 	}
 	
 	public static Movie newRegularMovie(String name) {
-		return new Movie(name, REGULAR);
+		return new Movie(name, new RegularStatus());
 	}
 	
 	public static Movie newJustReleasedMovie(String name) {
-		return new Movie(name, NEW_RELEASE);
+		return new Movie(name, new JustReleasedStatus());
 	}	
 	
 	public void beForChildren() {
-		this.priceCode = CHILDRENS;
+		this.status = new ChildrenStatus();
 	}
 	
 	public void beRegular() {
-		this.priceCode = REGULAR;
+		this.status = new RegularStatus();
 	}	
 	
-	public int priceCode() {
-		return priceCode;
-	}
-
 	public void persist() {
 		Registrar.add("Movies", this);
 	}
 
 	double amount(int daysRented) {
-		double thisAmount = 0;
-		switch (priceCode()) {
-		case Movie.REGULAR:
-			thisAmount += 2;
-			if (daysRented > 2)
-				thisAmount += (daysRented - 2) * 1.5;
-			break;
-		case Movie.NEW_RELEASE:
-			thisAmount += daysRented * 3;
-			break;
-		case Movie.CHILDRENS:
-			thisAmount += 1.5;
-			if (daysRented > 3)
-				thisAmount += (daysRented - 3) * 1.5;
-			break;
-		}
-		return thisAmount;
+		return status.amount(daysRented);
 	}
+	
+//	double amount(int daysRented) {
+//		double thisAmount = 0;
+//		switch (priceCode()) {
+//		case Movie.REGULAR:
+//			thisAmount += 2;
+//			if (daysRented > 2)
+//				thisAmount += (daysRented - 2) * 1.5;
+//			break;
+//		case Movie.NEW_RELEASE:
+//			thisAmount += daysRented * 3;
+//			break;
+//		case Movie.CHILDRENS:
+//			thisAmount += 1.5;
+//			if (daysRented > 3)
+//				thisAmount += (daysRented - 3) * 1.5;
+//			break;
+//		}
+//		return thisAmount;
+//	}
+
+	int rentalPoint(int daysRented) {
+		return this.status.rentalPoint(daysRented);
+	}
+	
+//	int rentalPoint(int daysRented) {
+//		int pointToAdd = 0;
+//		
+//		// add frequent renter points
+//		pointToAdd++;
+//		// add bonus for a two day new release rental
+//		if ((priceCode() == Movie.NEW_RELEASE)
+//				&& daysRented > 1)
+//			pointToAdd++;
+//		return pointToAdd;
+//	}
 
 	public static Movie get(String name) {
 		return (Movie) Registrar.get("Movies", name);

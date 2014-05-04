@@ -125,20 +125,6 @@ public class CustomerTest {
 		
 	}
 	
-	@Test
-	public void shouldNotAcceptIllegalCategory() {
-		
-		// given
-		Rental rental = mockAChildrenRental( "Madagascar", 4);
-		Customer customer = new Customer("Mark");
-		
-		// when
-		asException.expect(IllegalArgumentException.class);
-		customer.addRental( rental );
-				
-	}
-	
-
 	private Rental mockARegularRental(String title, int daysRented) {
 		return mockARental(daysRented, Movie.newRegularMovie(title));
 	}

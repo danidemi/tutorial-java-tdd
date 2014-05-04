@@ -63,9 +63,6 @@ class Customer extends DomainObject {
 	}
 
 	public void addRental(Rental arg) {
-		if(arg.tape().movie().priceCode() < 0 || arg.tape().movie().priceCode() > 3){
-			throw new IllegalArgumentException("Wrong movie price code");
-		}
 		rentals.add(arg);
 	}
 

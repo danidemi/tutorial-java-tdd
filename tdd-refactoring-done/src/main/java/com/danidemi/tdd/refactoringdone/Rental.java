@@ -22,21 +22,11 @@ class Rental extends DomainObject {
 	}
 
 	double amount() {
-		
-		int daysRented = this.daysRented();
-		return this.tape().movie().amount(daysRented);
+		return this.tape().movie().amount(this.daysRented());
 	}
 
 	int rentalPoints() {
-		int pointToAdd = 0;
-		
-		// add frequent renter points
-		pointToAdd++;
-		// add bonus for a two day new release rental
-		if ((tape().movie().priceCode() == Movie.NEW_RELEASE)
-				&& daysRented() > 1)
-			pointToAdd++;
-		return pointToAdd;
+		return tape().movie().rentalPoint(this.daysRented());
 	}
 
 	public String movieName() {
