@@ -23,6 +23,11 @@
 		<module>tdd-showcase-mockito</module>
 		<module>tdd-showcase-main</module>
 		<module>tdd-showcase-powermock</module>
+		<module>tdd-showcase-dbunit</module>
+		<module>tdd-j2e-open-ejb</module>
+		<module>tdd-j2e-arquillan</module>
+		<module>tdd-refactoring</module>
+		<module>tdd-refactoring-done</module>
 	</modules>
 
 	<properties>

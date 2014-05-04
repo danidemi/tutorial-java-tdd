@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<table name="Publisher">
+		<column>Id</column>
+		<column>Name</column>
+		<row>
+			<value>1</value>
+			<value>MGM</value>
+		</row>
+	</table>
+	<table name="Movie">
+		<column>Id</column>
+		<column>Title</column>
+		<column>Year</column>
+		<column>Publisher_Id</column>				
+	</table>
+</dataset>

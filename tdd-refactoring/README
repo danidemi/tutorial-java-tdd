@@ -1,0 +1,17 @@
+Inspired by http://www.cs.unc.edu/~stotts/723/refactor/chap1.html
+
+- Problem: we want an output in HTML and the charging rule could change.
+
+- That long statement routine in the Customer does far too much. Many of the things that it does should really be done by the other classes.
+- Extracting the Amount Calculation (extract method)
+- Changing variables name
+- Moving the amount calculation from Customer to Rental 
+- Removing "temp variable" with "query", clearer meaning.
+- Extracting Frequent Rental Points
+- Move method to Rental
+- Removing "temp variable" with "query", clearer meaning.
+- htmlStatement()
+- Moving the Rental Calculations to Movie
+- frequent renter points moved to Movie
+- static constructors to hide constants
+- inheritance & state pattern
