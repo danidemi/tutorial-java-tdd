@@ -20,5 +20,13 @@ class Rental extends DomainObject {
 	public Tape tape() {
 		return tape;
 	}
+	
+	public int frequentRenterPoints() {
+        return tape().movie().frequentRenterPoints(daysRented);
+    }
+	
+	public double charge() {
+        return tape.movie().charge(daysRented);
+    }
 
 }

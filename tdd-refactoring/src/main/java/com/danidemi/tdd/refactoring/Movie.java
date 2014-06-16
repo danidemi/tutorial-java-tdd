@@ -14,15 +14,30 @@ public class Movie extends DomainObject {
 	public static final int REGULAR = 0;
 	public static final int NEW_RELEASE = 1;
 
-	private int priceCode;
+	private Price priceCode;
 
-	public Movie(String name, int priceCode) {
+	public Movie(String name) {
 		super(name);
-		this.priceCode = priceCode;
 	}
 
+	public static Movie newNewRelease(String name){
+		Movie movie = new Movie(name);
+		movie.beNewRelease();
+        return movie;
+    }
+    public static Movie newRegular(String name){
+    	Movie movie = new Movie(name);
+		movie.beRegular();
+        return movie;
+    }
+    public static Movie newChildrens(String name) {
+    	Movie movie = new Movie(name);
+		movie.beChildrens();
+        return movie;
+    }
+
 	public int priceCode() {
-		return priceCode;
+		return priceCode.priceCode();
 	}
 
 	public void persist() {
@@ -32,4 +47,25 @@ public class Movie extends DomainObject {
 	public static Movie get(String name) {
 		return (Movie) Registrar.get("Movies", name);
 	}
+	
+	public double charge(int daysRented) {
+		return priceCode.charge(daysRented);
+    }
+	
+	public int frequentRenterPoints(int daysRented) {
+        if ((priceCode() == Movie.NEW_RELEASE) && daysRented > 1) return 2;
+        else return 1;
+    }
+	
+	public void beRegular() {
+        priceCode = Price.regular();
+    }
+    
+    public void beNewRelease() {
+        priceCode = Price.newRelease();
+    }
+    
+    public void beChildrens() {
+        priceCode = Price.childrens();
+    }
 }
