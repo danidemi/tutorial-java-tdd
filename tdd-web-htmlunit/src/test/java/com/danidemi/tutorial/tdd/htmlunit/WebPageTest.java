@@ -31,9 +31,11 @@ public class WebPageTest {
 	@Ignore
 	@Test
 	public void test() throws FailingHttpStatusCodeException, MalformedURLException, IOException {
+		
 		final HtmlPage page = webClient.getPage("http://localhost:8080");
 		
 		HtmlForm formByName = page.getFormByName("form");
+
 		
 		
 		formByName.getInputByName("firstName").setValueAttribute("Mark");
