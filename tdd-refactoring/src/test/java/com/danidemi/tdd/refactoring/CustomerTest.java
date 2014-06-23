@@ -16,8 +16,7 @@ public class CustomerTest {
 	public void testRegularFor3Days() {
 		
 		// given
-		//Rental rental = mockARental(Movie.newRegular(""), "The Empire Strikes Back", 3);
-		Rental rental = mockARental(Movie.newRegular("The Empire Strikes Back"), 3);
+		Rental rental = mockARental(Movie.REGULAR, "The Empire Strikes Back", 3);
 		
 		// when
 		Customer customer = new Customer("John");
@@ -33,7 +32,7 @@ public class CustomerTest {
 	public void testRegularFor2Days() {
 		
 		// given
-		Rental rental = mockARental(Movie.newRegular("The Empire Strikes Back"), 2);
+		Rental rental = mockARental(Movie.REGULAR, "The Empire Strikes Back", 2);
 		
 		// when
 		Customer customer = new Customer("John");
@@ -49,7 +48,7 @@ public class CustomerTest {
 	public void testRegularFor1Days() {
 		
 		// given
-		Rental rental = mockARental(Movie.newRegular("The Empire Strikes Back"), 1);
+		Rental rental = mockARental(Movie.REGULAR, "The Empire Strikes Back", 1);
 		
 		// when
 		Customer customer = new Customer("John");
@@ -65,7 +64,7 @@ public class CustomerTest {
 	public void testLongNewRelease() {
 		
 		// given
-		Rental rental = mockARental(Movie.newNewRelease("The Empire Strikes Back"), 2);
+		Rental rental = mockARental(Movie.NEW_RELEASE, "The Empire Strikes Back", 2);
 		
 		// when
 		Customer customer = new Customer("Mark");
@@ -81,7 +80,7 @@ public class CustomerTest {
 	public void testShortNewRelease() {
 		
 		// given
-		Rental rental = mockARental(Movie.newNewRelease("The Empire Strikes Back"), 1);
+		Rental rental = mockARental(Movie.NEW_RELEASE, "The Empire Strikes Back", 1);
 		
 		// when
 		Customer customer = new Customer("Mark");
@@ -97,7 +96,7 @@ public class CustomerTest {
 	public void testShortChildren() {
 		
 		// given
-		Rental rental = mockARental(Movie.newChildrens("Whitesnow"), 2);
+		Rental rental = mockARental(Movie.CHILDRENS, "Whitesnow", 2);
 		
 		// when
 		Customer customer = new Customer("Mark");
@@ -113,7 +112,7 @@ public class CustomerTest {
 	public void testLongChildren() {
 		
 		// given
-		Rental rental = mockARental(Movie.newChildrens("Madagascar"), 4);
+		Rental rental = mockARental(Movie.CHILDRENS, "Madagascar", 4);
 		
 		// when
 		Customer customer = new Customer("Mark");
@@ -125,21 +124,22 @@ public class CustomerTest {
 		
 	}
 	
-//	@Test
-//	public void shouldNotAcceptIllegalCategory() {
-//		
-//		// given
-//		Rental rental = mockARental(Integer.MAX_VALUE, "Madagascar", 4);
-//		Customer customer = new Customer("Mark");
-//		
-//		// when
-//		asException.expect(IllegalArgumentException.class);
-//		customer.addRental( rental );
-//				
-//	}
-	
-	private Rental mockARental(Movie movie, int daysRented) {
+	@Test
+	public void shouldNotAcceptIllegalCategory() {
 		
+		// given
+		Rental rental = mockARental(Integer.MAX_VALUE, "Madagascar", 4);
+		Customer customer = new Customer("Mark");
+		
+		// when
+		asException.expect(IllegalArgumentException.class);
+		customer.addRental( rental );
+				
+	}
+	
+	private Rental mockARental(int priceCode, String title, int daysRented) {
+		
+		Movie movie = new Movie(title, priceCode);
 		Tape tape = new Tape("00000", movie);
 		Rental rental = new Rental(tape, daysRented);
 		
