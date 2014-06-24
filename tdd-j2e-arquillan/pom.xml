@@ -9,6 +9,11 @@
   
 	<dependencies>
 
+		<!--  J2EE specs, 'provided' because normally made available by the container  -->
+		<!--  Not the library one could expect, javax:javaee-api. It is evil accordin to
+		https://community.jboss.org/wiki/WhatsTheCauseOfThisExceptionJavalangClassFormatErrorAbsentCode
+		so, let's use the equivalent one provided by JBoss.  
+		-->
 		<dependency>
 			<groupId>org.jboss.spec</groupId>
 			<artifactId>jboss-javaee-6.0</artifactId>
@@ -17,6 +22,9 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<!-- Arquillan -->
+		
+		<!-- Depends on the BOM, or version matrix, for Arquillian’s transitive dependencies -->
 		<dependency>
 			<groupId>org.jboss.arquillian</groupId>
 			<artifactId>arquillian-bom</artifactId>
@@ -24,7 +32,8 @@
 			<scope>provided</scope>
 			<type>pom</type>
 		</dependency>
-
+		
+		<!-- Add the Arquillian JUnit integration -->
 		<dependency>
 			<groupId>org.jboss.arquillian.junit</groupId>
 			<artifactId>arquillian-junit-container</artifactId>
@@ -32,17 +41,27 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- 
+			This is an adapter that makes Arquillan able to interact with a container.
+			In this case Weld. 
+		-->
 		<dependency>
 			<groupId>org.jboss.arquillian.container</groupId>
 			<artifactId>arquillian-weld-se-embedded-1.1</artifactId>
 			<version>1.0.0.CR7</version>
 		</dependency>
+		<!-- Arquillan -->
+		
+		
+		<!-- Weld is the reference implementation of CDI: Contexts and Dependency Injection for the Java EE Platform -->
 		<dependency>
 			<groupId>org.jboss.weld</groupId>
 			<artifactId>weld-core</artifactId>
 			<version>1.1.5.Final</version>
 			<scope>test</scope>
 		</dependency>
+		
+		<!--  Logging for Weld -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-simple</artifactId>
