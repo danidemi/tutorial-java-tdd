@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/tdd.web/?flash.priority=INFO&amp;flash.message=Actor%20%27John%20Smith%27%20added</td>
+	<td>/tdd-web-app/?flash.priority=INFO&amp;flash.message=Actor%20%27John%20Smith%27%20added</td>
 	<td></td>
 </tr>
 <tr>
@@ -56,7 +56,6 @@
 	<td>css=#form &gt; form &gt; input[type=&quot;submit&quot;]</td>
 	<td></td>
 </tr>
-
 </tbody></table>
 </body>
 </html>
