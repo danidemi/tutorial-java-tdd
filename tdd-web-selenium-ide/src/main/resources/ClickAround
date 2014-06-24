@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/tdd.web/?flash.priority=INFO&amp;flash.message=Actor%20%27John%20Back%27%20added</td>
+	<td>/tdd-web-app/?flash.priority=INFO&amp;flash.message=Actor%20%27John%20Back%27%20added</td>
 	<td></td>
 </tr>
 <tr>
@@ -31,7 +31,6 @@
 	<td>id=birthDate</td>
 	<td>xxx</td>
 </tr>
-
 </tbody></table>
 </body>
 </html>

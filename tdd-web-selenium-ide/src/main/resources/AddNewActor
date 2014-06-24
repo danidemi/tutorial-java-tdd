@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/tdd.web/?flash.priority=INFO&amp;flash.message=Actor%20%27John%20Back%27%20removed</td>
+	<td>/tdd-web-app/?flash.priority=INFO&amp;flash.message=Actor%20%27John%20Back%27%20removed</td>
 	<td></td>
 </tr>
 <tr>
@@ -43,10 +43,9 @@
 </tr>
 <tr>
 	<td>verifyText</td>
-	<td>//tr[4]/td</td>
+	<td>css=tbody &gt; tr &gt; td</td>
 	<td>exact:John</td>
 </tr>
-
 </tbody></table>
 </body>
 </html>
