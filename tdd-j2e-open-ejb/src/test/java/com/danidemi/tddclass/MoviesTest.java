@@ -20,6 +20,9 @@ import org.apache.openejb.testing.Module;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+//The org.apache.openejb.junit.ApplicationComposer is a JUnit test runner. 
+//It involves no classpath scanning at all. 
+//If you want something to be in the app, you must build it directly in your testcase.
 @RunWith(ApplicationComposer.class)
 public class MoviesTest extends TestCase {
 
@@ -32,6 +35,8 @@ public class MoviesTest extends TestCase {
     @PersistenceContext
     private EntityManager entityManager;
 
+    //An open EJB annotation that mark a method that define the structure of the app to be deployed.
+    //Multiple methods can be marked with @Module. This for instance configure persistence.
     @Module
     public PersistenceUnit persistence() {
         PersistenceUnit unit = new PersistenceUnit("movie-unit");
@@ -42,6 +47,7 @@ public class MoviesTest extends TestCase {
         return unit;
     }
 
+    // This one configures the EJBs 
     @Module
     public EjbJar beans() {
         EjbJar ejbJar = new EjbJar("movie-beans");
@@ -49,6 +55,7 @@ public class MoviesTest extends TestCase {
         return ejbJar;
     }
 
+    // This one returns the configuration as a Properties.
     @Configuration
     public Properties config() throws Exception {
         Properties p = new Properties();
@@ -78,7 +85,7 @@ public class MoviesTest extends TestCase {
             assertEquals("Movies.getMovies()", 0, movies.getMovies().size());
 
         } finally {
-            userTransaction.commit();
+            userTransaction.rollback();
         }
     }
     
@@ -97,7 +104,7 @@ public class MoviesTest extends TestCase {
             assertEquals("List.size()", 3, list.size());
             
         } finally {
-            userTransaction.commit();
+            userTransaction.rollback();
         }
     }
         
