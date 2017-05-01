@@ -1,10 +1,9 @@
 package com.danidemi.tutorial.tdd.calc;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
@@ -12,6 +11,7 @@ import static org.junit.Assert.assertThat;
 
 public class CalcTest {
 
+    @Ignore("Implement the code to pass it.")
     @Test
     public void shouldShowZeroWhenJustInstantiated() {
 
@@ -23,6 +23,7 @@ public class CalcTest {
 
     }
 
+    @Ignore("Implement the code to pass it.")
     @Test
     public void shouldDisplayTheNumberComposedByKeystrokes() {
 
@@ -36,6 +37,7 @@ public class CalcTest {
 
     }
 
+    @Ignore("Implement the code to pass it.")
     @Test
     public void shouldNotDisplayMoreThanNineDigits() {
 
@@ -46,6 +48,7 @@ public class CalcTest {
 
     }
 
+    @Ignore("Implement the code to pass it.")
     @Test
     public void shouldDisplayNumberAsSoonItIsTyped(){
 
@@ -63,6 +66,7 @@ public class CalcTest {
 
     }
 
+    @Ignore("Implement the code to pass it.")
     @Test
     public void shouldSumTwoPositiveNumbers(){
 
@@ -74,6 +78,7 @@ public class CalcTest {
 
     }
 
+    @Ignore("Implement the code to pass it.")
     @Test
     public void shouldOverflowIfTheResultIsToBigToFitTheDisplay(){
 
@@ -85,6 +90,7 @@ public class CalcTest {
 
     }
 
+    @Ignore("Implement the code to pass it.")
     @Test
     public void shouldNotAcceptAnyKeystrokeAfterOverflow(){
 
@@ -98,6 +104,7 @@ public class CalcTest {
 
     }
 
+    @Ignore("Implement the code to pass it.")
     @Test
     public void shouldClearTheOverflow(){
 
@@ -113,6 +120,7 @@ public class CalcTest {
 
     }
 
+    @Ignore("Implement the code to pass it.")
     @Test
     public void shouldApplyLastSumWithMultipleEqual() {
 
@@ -127,6 +135,7 @@ public class CalcTest {
 
     }
 
+    @Ignore("Implement the code to pass it.")
     @Test
     public void shouldSubtract() {
 
@@ -138,6 +147,7 @@ public class CalcTest {
 
     }
 
+    @Ignore("Implement the code to pass it.")
     @Test
     public void shouldKeepOnSubtract() {
 

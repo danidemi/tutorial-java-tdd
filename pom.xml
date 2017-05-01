@@ -157,6 +157,7 @@
 		<module>tdd-j2e-arquillan</module>
 		<module>tdd-refactoring</module>
 		<module>tdd-refactoring-done</module>
+        <module>tdd-fill-the-code-starting-from-test</module>
 	</modules>
 
 	<build>
