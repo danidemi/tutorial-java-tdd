@@ -149,7 +149,7 @@
 		<module>tdd-web-htmlunit</module>
 		<module>tdd-showcase-junit</module>
 		<module>tdd-showcase-hamcrest</module>
-		<module>tdd-showcase-mockito</module>
+		<module>tdd-mockito-showcase</module>
 		<module>tdd-showcase-main</module>
 		<module>tdd-showcase-powermock</module>
 		<module>tdd-showcase-dbunit</module>

@@ -1,19 +1,18 @@
 package com.danidemi.tutorial.tdd.showcase.mockito;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.assertThat;
-import static org.mockito.Mockito.*;
-import static org.junit.Assert.*;
-
-import java.sql.SQLException;
-
-import org.junit.Test;
-import org.mockito.InOrder;
-
 import com.danidemi.tutorial.tdd.showcase.authentication.LoginException;
 import com.danidemi.tutorial.tdd.showcase.authentication.Repository;
 import com.danidemi.tutorial.tdd.showcase.authentication.Service;
 import com.danidemi.tutorial.tdd.showcase.authentication.User;
+import org.junit.Test;
+import org.mockito.InOrder;
+
+import java.sql.SQLException;
+
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
 public class ServiceTest {
 
