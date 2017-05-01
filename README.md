@@ -16,32 +16,32 @@ Source code for the Test Driven Development class.
 
 # TDD Coverage
 
-* tdd-coverage: Shows how 100% coverage does not mean software is correct.
+* coverage: Shows how 100% coverage does not mean software is correct.
 
 # TDD Libraries
 
-* tdd-showcace-main: some domain classes shared among different examples.
+* showcase-hamcrest: Things you can do with Hamcrest matchers in JUnit.
 
-* tdd-showcase-hamcrest: Things you can do with Hamcrest matchers in JUnit.
+* showcase-junit: Things you can do with JUnit.
 
-* tdd-showcase-junit: Things you can do with JUnit.
+* showcase-mockito: Things you can do with Mockito.
 
-* tdd-mockito-showcase: Things you can do with Mockito.
+* showcase-powermock: Things you can do with PowerMock and Mockito.
 
-* tdd-showcase-powermock: Things you can do with PowerMock and Mockito.
+* showcase-dbunit: Things you can do with DbUnit and Mockito.
 
-* tdd-showcase-dbunit: Things you can do with DbUnit and Mockito.
+* showcase-main: some domain classes shared among different examples.
 
 # Integration tests
 
-* tdd-web-app: sample web app.
+* integration-web-app: sample web app.
 
-* tdd-web-htmlunit: example of automatic testing with HtmlUnit.
+* integration-web-htmlunit: example of automatic testing with HtmlUnit.
 
-* tdd-web-selenium-ide: example of automatic testing with SeleniumIde.
+* integration-web-selenium-ide: example of automatic testing with SeleniumIde.
 
-* tdd-web-selenium-webdriver: example of automatic testing with WebDriver.
+* integration-web-selenium-webdriver: example of automatic testing with WebDriver.
 
-* tdd-j2e-arquillan: JEE tests with Arquillan.
+* integration-jee-arquillan: JEE tests with Arquillan.
  
-* tdd-j2e-open-ejb: JEE tests with Open EJB.
+* integration-jee-open-ejb: JEE tests with Open EJB.

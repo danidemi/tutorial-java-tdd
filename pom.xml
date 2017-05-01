@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 
-	<groupId>com.danidemi.tutorial</groupId>
+	<groupId>com.danidemi.tutorial.tdd</groupId>
 	<artifactId>tdd-parent</artifactId>
 	<version>0.0.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
@@ -138,27 +138,36 @@
 		</dependencies>
 	</dependencyManagement>
 
-	<modules>
-		<module>tdd-coverage</module>
+
+    <modules>
+
+        <!-- core TDD modules -->
 		<module>tdd-darts</module>
 		<module>tdd-helloworld</module>
 		<module>tdd-mocks</module>
-		<module>tdd-web-app</module>
-		<module>tdd-web-selenium-webdriver</module>
-		<module>tdd-web-selenium-ide</module>
-		<module>tdd-web-htmlunit</module>
-		<module>tdd-showcase-junit</module>
-		<module>tdd-showcase-hamcrest</module>
-		<module>tdd-mockito-showcase</module>
-		<module>tdd-showcase-main</module>
-		<module>tdd-showcase-powermock</module>
-		<module>tdd-showcase-dbunit</module>
-		<module>tdd-j2e-open-ejb</module>
-		<module>tdd-j2e-arquillan</module>
-		<module>tdd-refactoring</module>
-		<module>tdd-refactoring-done</module>
+        <module>tdd-refactoring</module>
+        <module>tdd-refactoring-done</module>
         <module>tdd-fill-the-code-starting-from-test</module>
-	</modules>
+
+        <!-- coverage -->
+        <module>coverage</module>
+
+        <!-- technical showcases -->
+        <module>showcase-junit</module>
+        <module>showcase-hamcrest</module>
+        <module>showcase-mockito</module>
+        <module>showcase-main</module>
+        <module>showcase-powermock</module>
+        <module>showcase-dbunit</module>
+
+        <!-- integration -->
+        <module>integration-web-selenium-webdriver</module>
+        <module>integration-web-app</module>
+        <module>integration-web-selenium-ide</module>
+        <module>integration-web-htmlunit</module>
+        <module>integration-jee-open-ejb</module>
+        <module>integration-jee-arquillan</module>
+    </modules>
 
 	<build>
 		<pluginManagement>
