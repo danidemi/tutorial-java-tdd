@@ -6,4 +6,14 @@
     <version>0.0.2-SNAPSHOT</version>
   </parent>
   <artifactId>tdd-refactoring-done</artifactId>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.hamcrest</groupId>
+      <artifactId>hamcrest-library</artifactId>
+    </dependency>
+  </dependencies>
 </project>

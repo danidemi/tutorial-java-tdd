@@ -23,6 +23,14 @@
                 <groupId>com.opera</groupId>
                 <artifactId>operadriver</artifactId>
             </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>org.hamcrest</groupId>
+                <artifactId>hamcrest-library</artifactId>
+            </dependency>
         </dependencies>
         <dependencyManagement>
             <dependencies>
