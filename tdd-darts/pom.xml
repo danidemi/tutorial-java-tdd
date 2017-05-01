@@ -5,11 +5,23 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>tdd-darts</artifactId>
   <packaging>jar</packaging>
-  
-  <parent>
+    <parent>
   	<groupId>com.danidemi.tutorial</groupId>
   	<artifactId>tdd-parent</artifactId>
   	<version>0.0.2-SNAPSHOT</version>
   </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-library</artifactId>
+        </dependency>
+    </dependencies>
+
+
 
 </project>
